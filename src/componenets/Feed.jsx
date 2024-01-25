@@ -3,13 +3,13 @@ import { useState, useEffect } from "react";
 import { Stack, Box, Typography } from "@mui/material";
 import Videos from "./Videos";
 import Sidebar from "./Sidebar";
-import { fetchFromAPi } from "../utils/fetchFromApi";
+import { fetchFromApi } from "../utils/fetchFromApi";
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState("New");
   const [videos, setVideos] = useState([]);
   useEffect(() => {
     setVideos(null);
-    fetchFromAPi(`search?part=snippet&q=${selectedCategory}`).then((data) =>
+    fetchFromApi(`search?part=snippet&q=${selectedCategory}`).then((data) =>
       setVideos(data.items)
     );
   }, [selectedCategory]); //only run when the page reloads
@@ -34,10 +34,10 @@ const Feed = () => {
           variant="body2"
           sx={{ mt: 1.5, color: "#fff" }}
         >
-          Copyright 2024 matheos belay
+          Free to Clone..Matheos Belay
         </Typography>
       </Box>
-      <Box p={2} sx={{ overflowY: "auto ", height: "90vh", flex: 2 }}>
+      <Box p={2} sx={{ overflowY: "auto ", height: "90vh", flex: 2}}>
         <Typography
           variant="h4"
           fontWeight="bold"
